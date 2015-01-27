@@ -3,7 +3,9 @@
   "description": "Hapi plugin to resolve fluxible app.",
   "version": "0.1.0",
   "homepage": "https://github.com/radek/hapi-fluxible-router",
-  "bugs": "https://github.com/radek/hapi-fluxible-router/issues",
+  "bugs": {
+    "url": "https://github.com/radek/hapi-fluxible-router/issues"
+  },
   "license": "MIT",
   "main": "index",
   "author": {
@@ -29,12 +31,10 @@
     ]
   },
   "dependencies": {
-    "browserify": "^7.0.2",
-    "hoek": "2.10.0",
+    "bluebird": "^2.8.2",
     "node-jsx": "^0.12.4",
     "react": "^0.12.1",
     "reactify": "^0.17.1",
-    "watchify": "^2.2.1",
     "flux-router-component": "^0.5.4",
     "fluxible": "^0.1.5",
     "fluxible-plugin-fetchr": "^0.2.1",
@@ -43,6 +43,7 @@
     "serialize-javascript": "^1.0.0"
   },
   "devDependencies": {
+    "browserify": "^7.0.2",
     "gulp": "^3.6.2",
     "gulp-util": "2.2.16",
     "gulp-bump": "^0.1.8",
@@ -55,15 +56,17 @@
     "gulp-plumber": "^0.6.2",
     "gulp-mocha": "^1.0.0",
     "hapi": "8.0.0",
-    "vinyl-source-stream": "^1.0.0"
+    "vinyl-source-stream": "^1.0.0",
+    "watchify": "^2.2.1"
   },
   "peerDependencies": {
-    "hapi": ">=2.x.x"
+    "hapi": ">=8.x.x"
   },
   "engines": {
     "node": ">=0.10.22"
   },
   "scripts": {
     "test": "gulp test"
-  }
+  },
+  "readmeFilename": "README.md"
 }
