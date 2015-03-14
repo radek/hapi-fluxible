@@ -21,7 +21,7 @@ module.exports = {
             done();
         }
     },
-    dynamicpage: {
+    page: {
         path: '/page/:id',
         method: 'get',
         page: 'page',

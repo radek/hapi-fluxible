@@ -11,10 +11,10 @@ var Page = require('./Page.jsx');
 var Timestamp = require('./Timestamp.jsx');
 var ApplicationStore = require('../stores/ApplicationStore');
 var RouterMixin = require('flux-router-component').RouterMixin;
-var StoreMixin = require('fluxible').StoreMixin;
+var FluxibleMixin = require('fluxible').Mixin;
 
 var Application = React.createClass({
-    mixins: [RouterMixin, StoreMixin],
+    mixins: [RouterMixin, FluxibleMixin],
     statics: {
         storeListeners: [ApplicationStore]
     },
@@ -31,10 +31,10 @@ var Application = React.createClass({
         //choose the right page based on the route
         switch (this.state.currentPageName) {
             case 'home':
-                output = <Home/>;
+                output = <Home context={this.props.context}/>;
                 break;
             case 'about':
-                output = <About/>;
+                output = <About context={this.props.context}/>;
                 break;
             case 'page':
                 output = <Page context={this.props.context}/>;

@@ -1,10 +1,10 @@
 {
-  "name": "hapi-fluxible-router",
+  "name": "hapi-fluxible",
   "description": "Hapi plugin to resolve fluxible app.",
   "version": "0.1.0",
-  "homepage": "https://github.com/radek/hapi-fluxible-router",
+  "homepage": "https://github.com/radek/hapi-fluxible",
   "bugs": {
-    "url": "https://github.com/radek/hapi-fluxible-router/issues"
+    "url": "https://github.com/radek/hapi-fluxible/issues"
   },
   "license": "MIT",
   "main": "index",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/radek/hapi-fluxible-router"
+    "url": "https://github.com/radek/hapi-fluxible"
   },
   "keywords": [
     "hapi",
@@ -35,29 +35,29 @@
     "node-jsx": "^0.12.4",
     "react": "^0.12.1",
     "reactify": "^0.17.1",
-    "flux-router-component": "^0.5.4",
-    "fluxible": "^0.1.5",
-    "fluxible-plugin-fetchr": "^0.2.1",
+    "flux-router-component": "^0.5.14",
+    "fluxible": "^0.2.2",
+    "fluxible-plugin-fetchr": "^0.2.3",
     "fluxible-plugin-routr": "^0.3.0",
     "lodash.merge": "^2.4.1",
     "serialize-javascript": "^1.0.0"
   },
   "devDependencies": {
     "browserify": "^7.0.2",
-    "gulp": "^3.6.2",
-    "gulp-util": "2.2.16",
-    "gulp-bump": "^0.1.8",
-    "gulp-jscs": "^0.4.2",
-    "gulp-jshint": "^1.5.5",
-    "gulp-nodemon": "^1.0.4",
-    "gulp-istanbul": "^0.2.2",
-    "jshint-stylish": "^0.2.0",
-    "gulp-load-plugins": "^0.5.1",
-    "gulp-plumber": "^0.6.2",
-    "gulp-mocha": "^1.0.0",
-    "hapi": "8.0.0",
-    "vinyl-source-stream": "^1.0.0",
-    "watchify": "^2.2.1"
+    "gulp": "^3.8.11",
+    "gulp-util": "3.0.4",
+    "gulp-bump": "^0.3.0",
+    "gulp-jscs": "^1.4.0",
+    "gulp-jshint": "^1.9.2",
+    "gulp-nodemon": "^1.0.5",
+    "gulp-istanbul": "^0.6.0",
+    "jshint-stylish": "^1.0.1",
+    "gulp-load-plugins": "^0.8.1",
+    "gulp-plumber": "^1.0.0",
+    "gulp-mocha": "^2.0.0",
+    "hapi": "^8.4.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^2.4.0"
   },
   "peerDependencies": {
     "hapi": ">=8.x.x"

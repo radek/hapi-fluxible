@@ -7,9 +7,9 @@ var assert = require('assert'),
 
 require('node-jsx').install({extension: '.jsx'});
 
-var  routes = require('../example/routes.jsx');
+var routes = require('../example/routes');
 
-describe('hapi-react-router', function() {
+describe('hapi-fluxible', function() {
 
   var server;
   var heloRoute = [{
@@ -20,6 +20,11 @@ describe('hapi-react-router', function() {
     }
   }];
 
+  var options = {
+    rootComponent: '../example/components/Html.jsx',
+    fluxApp: '../example/app'
+  };
+
   beforeEach(function () {
     server = new Hapi.Server();
     server.connection({ port: 8000});
@@ -27,7 +32,7 @@ describe('hapi-react-router', function() {
   });
 
   it('loads successfully', function(done) {
-    server.register(plugin, function(err) {
+    server.register({register: plugin, options: options}, function(err) {
       assert.ok(!err);
       done();
     });
@@ -36,7 +41,7 @@ describe('hapi-react-router', function() {
   it('adds a route to /hello', function(done) {
     var table;
 
-    server.register(plugin, function() {
+    server.register({register: plugin, options: options}, function() {
 
       table = server.table();
       assert.ok(table);
@@ -53,43 +58,31 @@ describe('hapi-react-router', function() {
       url: '/hello'
     };
 
-    server.register(plugin, function() {
-
-      server.inject(request, function(res) {
-
+    server.register({register: plugin, options: options}, function(){
+      server.inject(request, function (res){
         assert.equal(res.statusCode, 200);
         assert.equal(res.result, 'don\'t worry, be hapi!');
-
         done();
       });
     });
+
   });
 
-  it('adds react-route', function(done) {
-    var table;
+  it('fluxible routes render page', function(done) {
+    var request = {
+      method: 'GET',
+      url: '/about',
+      routeName: 'about'
+    };
 
-    server.register(plugin, function() {
+    server.register({register: plugin, options: options}, function() {
 
-      var exrouteHandler = React.createFactory(routes.props.handler);
-      var exroute = {
-        method: 'GET',
-        path: routes.props.path,
-        handler: function(request, reply) {
-          return reply(exrouteHandler);
-        }
-      };
-
-      server.route(exroute);
-
-      table = server.table();
-      assert.ok(table);
-      assert.equal(table.length, 1);
-      console.log('HANDLER: ', table[0].table[1].path);
-      assert.equal(table[0].table[1].path, '/places');
-      console.log('HANDLER: ', table[0].table[1].settings.handler);
-//      assert.equal(table[0].table[1].handler, );
-
-      done();
+      server.inject(request, function (res){
+        var tester = new RegExp('^<!DOCTYPE');
+        assert.equal(res.statusCode, 200);
+        assert.equal(tester.test(res.result), true);
+        done();
+      });
     });
   });
 

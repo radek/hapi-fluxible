@@ -1,27 +1,12 @@
-# hapi-react-router 
+# hapi-fluxible 
 
-The best plugin ever.
+Plugin to run fluxible on hapi server.
+
+Includes router example from Yahoo. Flux with fluxible @https://github.com/yahoo/flux-examples
 
 ## Install
 
-```bash
-$ npm install --save hapi-react-router
-```
-
-## API
-
-_(Coming soon)_
-
-
-## Contributing
-
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [gulp](http://gulpjs.com/).
-
-
-## Release History
-
-_(Nothing yet)_
-
+TBD
 
 ## License
 

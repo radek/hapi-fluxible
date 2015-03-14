@@ -1,7 +1,6 @@
 'use strict';
-
 var gulp   = require('gulp');
-var browserify   = require('browserify');
+var browserify = require('browserify');
 var plugins = require('gulp-load-plugins')();
 var source = require('vinyl-source-stream');
 
@@ -13,9 +12,9 @@ var paths = {
 };
 
 function reBundle (bundler) {
-  return bundler.bundle().pipe(source("bundle.js"))
+  return bundler.bundle().pipe(source('bundle.js'))
   .pipe(gulp.dest('./public'))
-    .on('error', function () {
+    .on('error', function() {
       console.log('Browserify Error');
     }
   );
@@ -23,25 +22,23 @@ function reBundle (bundler) {
 
 function initBundler () {
   var bundler = browserify('./example/client.jsx', {});
-
-  bundler.on('log', function (msg) {
+  bundler.on('log', function(msg) {
     console.log('Browserify: ' + msg);
   });
-
   return bundler;
 }
 
-gulp.task('lint', function () {
+gulp.task('lint', function() {
   return gulp.src(paths.lint)
     .pipe(plugins.jshint('.jshintrc'))
     .pipe(plugins.jscs())
     .pipe(plugins.jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('istanbul', function (cb) {
+gulp.task('istanbul', function(cb) {
   gulp.src(paths.source)
     .pipe(plugins.istanbul()) // Covering files
-    .on('finish', function () {
+    .on('finish', function() {
       gulp.src(paths.tests, {cwd: __dirname})
         .pipe(plugins.plumber())
         .pipe(plugins.mocha())
@@ -55,15 +52,15 @@ gulp.task('istanbul', function (cb) {
 
 gulp.task('test', ['lint', 'istanbul']);
 
-gulp.task('scripts', function () {
+gulp.task('scripts', function() {
   var bundler = initBundler();
   return reBundle(bundler);
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', function() {
   var bundler = initBundler();
   bundler = gulp.watch(bundler);
-  bundler.on('update', function () {
+  bundler.on('update', function() {
     reBundle(bundler);
   });
   gulp.run('test');
@@ -71,12 +68,12 @@ gulp.task('watch', function () {
   return reBundle(bundler);
 });
 
-gulp.task('develop', function (){
+gulp.task('develop', function() {
   plugins.nodemon({ script: 'example/server.js', ext: 'js'})
     .on('change', ['test']);
 });
 
-gulp.task('bump', ['test'], function () {
+gulp.task('bump', ['test'], function() {
   var bumpType = plugins.util.env.type || 'patch'; // major.minor.patch
   return gulp.src(['./package.json'])
     .pipe(plugins.bump({ type: bumpType }))
@@ -84,5 +81,4 @@ gulp.task('bump', ['test'], function () {
 });
 
 gulp.task('release', ['bump']);
-
 gulp.task('default', ['test']);
