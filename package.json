@@ -37,13 +37,13 @@
     "reactify": "^0.17.1",
     "flux-router-component": "^0.6.0",
     "fluxible": "^0.3.0",
-    "fluxible-plugin-fetchr": "^0.2.3",
-    "fluxible-plugin-routr": "^0.3.0",
     "lodash.merge": "^3.0.3",
     "serialize-javascript": "^1.0.0"
   },
   "devDependencies": {
     "browserify": "^7.0.2",
+    "fluxible-plugin-fetchr": "^0.2.3",
+    "fluxible-plugin-routr": "^0.3.0",
     "gulp": "^3.8.11",
     "gulp-util": "3.0.4",
     "gulp-bump": "^0.3.0",
