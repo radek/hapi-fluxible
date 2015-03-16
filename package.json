@@ -33,13 +33,13 @@
   "dependencies": {
     "bluebird": "^2.8.2",
     "node-jsx": "^0.12.4",
-    "react": "^0.12.1",
+    "react": "^0.13.0",
     "reactify": "^0.17.1",
-    "flux-router-component": "^0.5.14",
-    "fluxible": "^0.2.2",
+    "flux-router-component": "^0.6.0",
+    "fluxible": "^0.3.0",
     "fluxible-plugin-fetchr": "^0.2.3",
     "fluxible-plugin-routr": "^0.3.0",
-    "lodash.merge": "^2.4.1",
+    "lodash.merge": "^3.0.3",
     "serialize-javascript": "^1.0.0"
   },
   "devDependencies": {
