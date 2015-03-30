@@ -30,8 +30,7 @@ server.route({
 });
 
 var fluxOptions = {
-  appPath: '../example',
-  rootComponent: 'components/Html.jsx'
+  appPath: '../example'
 };
 
 server.register({
@@ -46,4 +45,3 @@ server.register({
 server.start(function () {
   console.log('Server running at: ' + server.info.uri);
 });
-

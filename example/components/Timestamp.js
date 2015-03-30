@@ -6,10 +6,10 @@
 var React = require('react');
 var updateTime = require('../actions/updateTime');
 var TimeStore = require('../stores/TimeStore');
-var FluxibleMixin = require('fluxible').Mixin;
+var Fluxible = require('fluxible');
 
 var Timestamp = React.createClass({
-    mixins: [FluxibleMixin],
+    mixins: [Fluxible.FluxibleMixin],
     statics: {
         storeListeners: [TimeStore]
     },
@@ -24,9 +24,7 @@ var Timestamp = React.createClass({
         this.props.context.executeAction(updateTime);
     },
     render: function() {
-        return (
-            <em onClick={this.onReset} style={{fontSize: '.8em'}}>{this.state.time}</em>
-        );
+        return React.createElement('em', {onClick: this.onReset}, this.state.time);
     }
 });
 

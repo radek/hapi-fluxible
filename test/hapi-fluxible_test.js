@@ -21,7 +21,7 @@ describe('hapi-fluxible', function() {
   }];
 
   var options = {
-    rootComponent: '../example/components/Html.jsx',
+    rootComponent: '../example/components/Html',
     fluxApp: '../example/app'
   };
 
@@ -78,9 +78,11 @@ describe('hapi-fluxible', function() {
     server.register({register: plugin, options: options}, function() {
 
       server.inject(request, function (res){
-        var tester = new RegExp('^<!DOCTYPE');
+        var tester1 = new RegExp('^<!DOCTYPE');
+        var tester2 = new RegExp('.*\<body');
         assert.equal(res.statusCode, 200);
-        assert.equal(tester.test(res.result), true);
+        assert.equal(tester1.test(res.result), true);
+        assert.equal(tester2.test(res.result), true);
         done();
       });
     });

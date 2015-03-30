@@ -6,7 +6,7 @@ var source = require('vinyl-source-stream');
 
 var paths = {
   lint: ['./gulpfile.js', './lib/**/*.js'],
-  watch: ['./gulpfile.js', './index.js', './lib/**', './test/**/*.js', '!test/{temp,temp/**}'],
+  watch: ['./gulpfile.js', './index.js', './lib/**', './example/**', './test/**/*.js', '!test/{temp,temp/**}'],
   tests: ['./test/**/*.js', '!test/{temp,temp/**}'],
   source: ['./lib/*.js']
 };
