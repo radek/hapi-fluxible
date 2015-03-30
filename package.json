@@ -1,7 +1,7 @@
 {
   "name": "hapi-fluxible",
   "description": "Hapi plugin to resolve fluxible app.",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "homepage": "https://github.com/radek/hapi-fluxible",
   "bugs": {
     "url": "https://github.com/radek/hapi-fluxible/issues"
